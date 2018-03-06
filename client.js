@@ -18,6 +18,7 @@ class Employee {
     this.reviewRating = emp.reviewRating;
     this.bonusPercentage = bonus(emp) + '%';
     this.totalCompensation = calculate(emp);
+    this.totalBonus = bonusTotal(emp);
   }
 }
 function swag(name){
@@ -54,4 +55,10 @@ function calculate (dollar){
   let coin = bank.toFixed(2);
   let newCoin = parseInt(coin);
   return newCoin;
+}
+function bonusTotal (bling){
+  let money = bonus(bling);
+  let bills = (money/100) * bling.annualSalary;
+  let newBill = parseInt(bills);
+  return newBill;
 }
