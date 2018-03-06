@@ -9,3 +9,49 @@ const employees = [ atticus, jem, scout, robert, mayella ];
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
 
 console.log(employees);
+
+class Employee {
+  constructor (emp){
+    this.name = emp.name;
+    this.employeeNumber = emp.employeeNumber;
+    this.annualSalary = emp.annualSalary;
+    this.reviewRating = emp.reviewRating;
+    this.bonusPercentage = bonus(emp) + '%';
+    this.totalCompensation = calculate(emp);
+  }
+}
+function swag(name){
+  let supaSwag = new Employee(name);
+  return supaSwag;
+}
+console.log(swag(atticus));
+
+function bonus(person){
+  let reward = 0;
+  if (person.employeeNumber.length == 4) {
+    reward += 5;
+  }
+  if (parseInt(person.annualSalary) > 65000 ){
+    reward -= 1;
+  }
+  if (person.reviewRating == 3){
+    reward += 4;
+  }
+  else if (person.reviewRating == 4) {
+    reward += 6;
+  }
+  else if (person.reviewRating == 5) {
+    reward += 10;
+  }
+  if (reward > 13){
+    reward = 13;
+  }
+  return reward;
+}
+
+function calculate (dollar){
+  bank = parseInt(dollar.annualSalary) * (1 + (bonus(dollar))/100);
+  let coin = bank.toFixed(2);
+  let newCoin = parseInt(coin);
+  return newCoin;
+}
