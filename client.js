@@ -25,7 +25,6 @@ function swag(name){
   let supaSwag = new Employee(name);
   return supaSwag;
 }
-console.log(swag(atticus));
 
 function bonus(person){
   let reward = 0;
@@ -47,6 +46,9 @@ function bonus(person){
   if (reward > 13){
     reward = 13;
   }
+  if (reward < 0){
+    reward = 0;
+  }
   return reward;
 }
 
@@ -61,4 +63,8 @@ function bonusTotal (bling){
   let bills = (money/100) * bling.annualSalary;
   let newBill = parseInt(bills);
   return newBill;
+}
+
+for (people of employees){
+  console.log(swag(people));
 }
